@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+
+  <div class="jumbotron text-center">
+    <h1>Hola! Bienvenido a Coder-Tube</h1>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-offset-3 col-md-6">
+        <input class="form-control" placeholder="Ingrese un texto de búsqueda..." ng-model="main.text">
+      </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-offset-3 col-md-6">
+        <p class="animated infinite" ng-class="main.classAnimation">
+          <button type="button" class="btn btn-lg btn-success" ng-click="main.search()">Buscar</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

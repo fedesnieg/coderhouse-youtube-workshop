@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+
+  <div class="row">
+    <div class="col-md-7">
+      <h3>{{player.videoInformation.snippet.title}}
+        <h6>
+          <span style="margin-right: 15px;" ng-show="player.videoUtils.isInFav(player.videoId)">Esta en favoritos</span> 
+          <span ng-show="player.isWatched">Ya lo viste</span>
+        </h6> 
+      </h3>
+      <video-player video-id="player.videoId"></video-player>
+      <button ng-disabled="player.videoUtils.isInFav(player.videoId)" ng-click="player.addToFav(player.videoId)">Agregar a favoritos!</button>
+    </div>
+    <div class="col-md-5">
+      <div class="row">
+        <h4>Podría interesarte también...</h4>
+
+        <div class="col-md-12">
+          <div class="row" style="margin-top:10px;" ng-repeat="video in player.relatedVideos.items" ng-click="player.playVideo(video.id.videoId)">
+            <div class="col-md-4">
+              <img ng-src="{{video.snippet.thumbnails.default.url}}">
+            </div>
+            <div class="col-md-8">
+              <h5>{{video.snippet.title}}</h5>
+              <h6>
+                <span style="margin-right: 15px;" ng-show="player.videoUtils.isInFav(video.id.videoId)">Esta en favoritos</span> 
+                <span ng-show="player.videoUtils.isInWatched(video.id.videoId)">Ya lo viste</span>
+              </h6> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
